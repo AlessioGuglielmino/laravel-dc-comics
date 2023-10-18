@@ -16,3 +16,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [PageController::class, 'index'])->name('home');
+
+Route::get('/comics', function () {
+$comics= config('db.comic');
+return view('comics', compact ('comics'));
+
+})->name('comics');
