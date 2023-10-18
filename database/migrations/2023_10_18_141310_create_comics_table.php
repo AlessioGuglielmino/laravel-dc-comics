@@ -15,10 +15,14 @@ return new class extends Migration
     {
         Schema::create('comics', function (Blueprint $table) {
             $table->id();
-            $table->name('title');
-            $table->smallInteger('pages')->unsigned();
-            $table->text('description')->unsigned();
-            $table->enum('genere', ['seinen', 'umorismo', 'horror','azione','fantasy']);
+            $table->string('title');
+            $table->text('description');
+            $table->float('price');
+            $table->string('series');
+            $table->date('sale_date');
+            $table->string('types');
+
+
             $table->timestamps();
 
         });
