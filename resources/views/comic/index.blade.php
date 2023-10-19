@@ -30,6 +30,10 @@
               <a href="{{ route('comic.show', $comic)}}">
                   <i class="custom fa-solid fa-eye fa-xl"></i>
               </a>
+              <a href="{{ route('comic.edit', $comic)}}">
+                <i class="fa-solid fa-pencil"></i>
+            </a>
+
 
             </div>
           </div></div>

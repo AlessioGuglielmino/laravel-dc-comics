@@ -1,10 +1,19 @@
 @extends('layouts.app')
 @section('main-content')
 <div class="container">
+
+    
 <h1 class=" my-5">Inserisci un Comic</h1>
+
 
 <form action="{{route('comic.store')}}" method="POST">
     @csrf
+<div>
+    <div class="col-4 card">
+        <img class="img-fluid" src="" alt="" id="preview-image">
+    </div>
+</div>
+
 
     <div class="row g-3" >
         <div class="col-3">
@@ -44,14 +53,20 @@
             <button class="btn btn-primary">Invia</button>
         </div>   
     
-    
-    </div></form>
-
-
-
- 
-
-
+     </div>
+    </form>
 </div>
-    
+@endsection
+
+@section('scripts')
+<script>
+const previewImageEl= document.getElementById('preview-image')
+const thumbInput = document.getElementById('thumb')
+thumbInput.addEventListener('change', function(){
+    previewImageEl.src=this.value
+})
+
+
+</script>
+
 @endsection

@@ -57,21 +57,25 @@ class ComicsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Comic $comic)  
     {
-        //
-    }
+        return view('comic.edit', compact('comic'));    }
+
+    
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     *  @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request,Comic $comic)
     {
-        //
+        $data = $request->all();
+        $comic->update($data);
+        
+        return redirect()->route('comic.show', $comic);
     }
 
     /**
@@ -84,4 +88,5 @@ class ComicsController extends Controller
     {
         //
     }
+
 }
