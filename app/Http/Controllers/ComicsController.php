@@ -15,16 +15,16 @@ class ComicsController extends Controller
     public function index()
     {
         $comics= Comic::all();
-        return view('comics.index', compact('comics'));    }
-    };
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return\Illuminate\Http\Response
-     */
+        return view('comic.index', compact('comics'));    
+    }
+        /**
+         * Show the form for creating a new resource.
+         *
+         * @return\Illuminate\Http\Response
+         */
     public function create()
     {
-        return view('comics.create');    };
+        return view('comic.create');   }
 
     /**
      * Store a newly created resource in storage.
@@ -34,8 +34,12 @@ class ComicsController extends Controller
      */
     public function store(Request $request)
     {
-        //
-    }
+        $data = $request->all();
+        $comic = new Comic();
+        $comic->fill($data);
+        $comic->save();
+
+        return redirect()->route('comic.show', $comic);    }
 
     /**
      * Display the specified resource.
@@ -45,7 +49,7 @@ class ComicsController extends Controller
      */
     public function show(Comic $comic)
     {
-        return view('comics.show', compact('comic'));    }
+        return view('comic.show', compact('comic'));    }
 
     /**
      * Show the form for editing the specified resource.
