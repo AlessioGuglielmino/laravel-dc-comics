@@ -17,7 +17,7 @@ Mostra i Detatgli    </a>
            
             <div>
                 <div class="col-4 card">
-                    <img class="img-fluid" src="" alt="" id="preview-image">
+                    <img class="img-fluid" src="{{$comic->thumb}}" alt="" id="preview-image">
                 </div>
             </div>
         
